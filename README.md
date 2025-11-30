@@ -38,5 +38,5 @@ Original publication by Efremova et al.
 
 ## ℹ️ Project Note
 
-This repository is a work in progress and aims to help users transition smoothly between Python and R when working with CellPhoneDB for cell–cell communication analysis.
+This repository is a work in progress and aims to help students transition smoothly between Python and R when working with CellPhoneDB for cell–cell communication analysis.
 It is intended to facilitate the use of CellPhoneDB for students. CellPhoneDB is developed by Efremova et al., 2020. This project does not modify the original software.
