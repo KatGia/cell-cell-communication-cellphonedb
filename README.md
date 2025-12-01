@@ -35,6 +35,12 @@ CellPhoneDB: [https://www.cellphonedb.org](https://www.cellphonedb.org)
 Original publication by Efremova et al.
 
 ---
+## Plotting results:
+
+- ktplots (R)
+- ktplotspy (python)
+
+--- 
 
 ## ℹ️ Project Note
 
