@@ -19,7 +19,7 @@ The analysis is divided into two phases:
 
 ## 🧪 Requirements
 
-* **Python ≥ 3.8** (Recommended for stability with scientific packages)
+* **Python ≥ 3.8** (Recommended for stability packages)
 * **R ≥ 4.0**
 * **CellPhoneDB** (Python package)
 
