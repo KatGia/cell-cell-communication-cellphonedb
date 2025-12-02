@@ -4,7 +4,7 @@
 This repository provides a simple workflow for performing **cell–cell communication analysis** using **CellPhoneDB** in **Python**, followed by **graphical visualization** of the results in **R**.
 
 CellPhoneDB is a widely used tool that infers ligand–receptor interactions from single-cell RNA-seq data.
-Here, the Python implementation is used to run the statistical analysis, while R is used for generating dot plots, heatmaps, and other visualizations.
+Here, the Python implementation is used to run the statistical analysis, while R is used for generating dot-plots, heatmaps, and other visualizations.
 
 ---
 
@@ -12,8 +12,8 @@ Here, the Python implementation is used to run the statistical analysis, while R
 
 The analysis is divided into two phases:
 
-1.  **Python (`src/run_analysis.py`):** Executes the statistical analysis, handles data reading (e.g., `.h5ad`), and generates raw result files (`.txt`).
-2.  **R:** Loads the generated `.txt` files and creates publication-ready visualizations (Heatmap, Dot-plot, etc).
+1.  **Python (`Git4students.py`):** Executes the statistical analysis, handles data reading (e.g., `.h5ad`), and generates raw result files (`.txt`).
+2.  **R:** Loads the generated `.txt` files and creates publication-ready visualizations (heatmaps, dot-plots, etc).
 
 ---
 
@@ -70,7 +70,7 @@ Download the required version of the database (v5.0.0 is used in the script) dir
 python -c "from cellphonedb.utils import db_utils; db_utils.download_database(target_dir='data', cpdb_version='v5.0.0')"
 ```
 
-(The script src/Git4students.py expects the database file to be named cellphonedb.zip or the explicit version name used in the script).
+(The script `Git4students.py` expects the database file to be named cellphonedb.zip or the explicit version name used in the script).
 
 ---
 
@@ -82,7 +82,7 @@ This project is released under the MIT License.
 
 ## 🙌 Acknowledgments
 
-CellPhoneDB: [https://www.cellphonedb.org](https://www.cellphonedb.org)
+CellPhoneDB: (https://www.cellphonedb.org)
 Original publication by Efremova et al.
 
 --- 
