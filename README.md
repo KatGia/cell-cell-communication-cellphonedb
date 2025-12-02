@@ -70,7 +70,7 @@ Download the required version of the database (v5.0.0 is used in the script) dir
 python -c "from cellphonedb.utils import db_utils; db_utils.download_database(target_dir='data', cpdb_version='v5.0.0')"
 ```
 
-(The script src/run_analysis.py expects the database file to be named cellphonedb.zip or the explicit version name used in the script).
+(The script src/Git4students.py expects the database file to be named cellphonedb.zip or the explicit version name used in the script).
 
 ---
 
