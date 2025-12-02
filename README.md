@@ -13,7 +13,7 @@ Here, the Python implementation is used to run the statistical analysis, while R
 The analysis is divided into two phases:
 
 1.  **Python (`src/run_analysis.py`):** Executes the statistical analysis, handles data reading (e.g., `.h5ad`), and generates raw result files (`.txt`).
-2.  **R:** Loads the generated `.txt` files and creates publication-ready visualizations (https://zktuong.github.io/ktplots/articles/vignette.html).
+2.  **R:** Loads the generated `.txt` files and creates publication-ready visualizations (Heatmap, Dot-plot, etc).
 
 ---
 
@@ -23,9 +23,9 @@ The analysis is divided into two phases:
 * **R ≥ 4.0**
 * **CellPhoneDB** (Python package)
 
-### 📌 R Packages for Visualization (To be added)
+### 📌 R Packages for Visualization
 
-* `ktplots` (R)
+* `ktplots` (https://zktuong.github.io/ktplots/articles/vignette.html)
 * `ggplot2` (or `ktplotspy` in Python)
 
 ---
