@@ -13,7 +13,7 @@ BASE_PATH = '/PATH_AL_TUO_PROGETTO/Pitone'
 # Se esegui lo script dalla cartella 'Pitone', puoi usare:
 # BASE_PATH = os.getcwd() 
 
-# 1. DEFINIZIONE DEI PERCORSI E DELLE VARIABILI
+# DEFINIZIONE DEI PERCORSI E DELLE VARIABILI
 CPDB_DB_PATH = os.path.join(BASE_PATH, 'cellphonedb_v5.0.0.zip') 
 META_FILE = os.path.join(BASE_PATH, 'test_meta.txt')
 COUNTS_FILE = os.path.join(BASE_PATH, 'test.h5ad') 
