@@ -73,7 +73,7 @@ ktplots::plot_cpdb(
 
 
 
-### ⚠️ Common Troubleshooting
+### Common Troubleshooting
 # * Column Mismatch: If the plot is empty, check if `unique(sce$scType_CPDB)` exactly matches the column headers in your `pvals_Cate` file.
 # * Gene Names: CellphoneDB uses Gene Symbols. If your data uses Ensembl IDs, the plot will not find any matches.
 # * Data Scale: Using `standard_scale = TRUE` is recommended to make the dot sizes comparable across different interactions.
