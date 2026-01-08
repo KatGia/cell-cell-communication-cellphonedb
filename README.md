@@ -74,3 +74,7 @@ For plots:
 
 ---
 Now we'll use [**Seurat data**](https://satijalab.org/seurat/articles/pbmc3k_tutorial) (a dataset of Peripheral Blood Mononuclear Cells - PBMC) to check their communication. 
+
+
+
+This project is released under the MIT License.
