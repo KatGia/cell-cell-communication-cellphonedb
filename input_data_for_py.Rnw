@@ -77,7 +77,7 @@ write.table(counts_matrix_ready,
 # Before running the Python script, verify these points:
 # * Gene Names: Ensure they are HGNC symbols (e.g., CD3D, not ENSG000..).
 # * Alignment: The number of columns in the Counts file (excluding the gene column) must exactly match the number of rows in the Meta file.
-# * Special Characters: Check that your cell types are named like `CD8_T_cell` and not `CD8+ T cell`.
+# * Special Characters: Check that your cell types are named like CD8_T_cell and not CD8+ T cell.
 
 
 ### Pro Tip: Using .h5ad
