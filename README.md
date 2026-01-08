@@ -82,7 +82,7 @@ This project is released under the MIT License.
 
 ## 🙌 Acknowledgments
 
-CellPhoneDB: (https://www.cellphonedb.org)
+[**CellPhoneDB**](https://www.cellphonedb.org)
 Original publication by Efremova et al.
 
 --- 
