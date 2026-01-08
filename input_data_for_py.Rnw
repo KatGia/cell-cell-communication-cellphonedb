@@ -10,7 +10,7 @@ library(tibble)
 
 ### 2. Generate the Metadata File
 # The metadata file must link each cell barcode to its annotated cell type.
-# Crucial: Avoid spaces and special characters (like `+`) in cell type names.
+# Crucial: Avoid spaces and special characters (like +) in cell type names.
 
 
 # 1. Extract metadata
