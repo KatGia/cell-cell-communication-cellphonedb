@@ -1,93 +1,76 @@
-# cell-cell-communication-CellPhoneDB
+# 🧬 CellphoneDB Analysis
 
-
-This repository provides a simple workflow for performing **cell–cell communication analysis** using **CellPhoneDB** in **Python**, followed by **graphical visualization** of the results in **R**.
-
-CellPhoneDB is a widely used tool that infers ligand–receptor interactions from single-cell RNA-seq data.
-Here, the Python implementation is used to run the statistical analysis, while R is used for generating dot-plots, heatmaps, and other visualizations.
+**CellphoneDB** is a publicly available repository of curated receptors, ligands, and their interactions, coupled with a statistical framework to infer cell-cell communication from single-cell RNA sequencing (**scRNA-seq**) data.
 
 ---
 
-## 📂 Workflow Overview
+## 🔬 Methodology Overview
 
-The analysis is divided into two phases:
-
-1.  **Python (`Git4students.py`):** Executes the statistical analysis, handles data reading (e.g., `.h5ad`), and generates raw result files (`.txt`).
-2.  **R:** Loads the generated `.txt` files and creates publication-ready visualizations (heatmaps, dot-plots, etc).
-
----
-
-## 🧪 Requirements
-
-* **Python ≥ 3.8** (Recommended for stability packages)
-* **R ≥ 4.0**
-* **CellPhoneDB** (Python package)
-
-### 📌 R Packages for Visualization
-
-* `ktplots` (https://zktuong.github.io/ktplots/articles/vignette.html)
-* `ggplot2` (or `ktplotspy` in Python)
+| Method | Name | Brief Description | When to Use |
+| :--- | :--- | :--- | :--- |
+| **Method 1** | **Simple Analysis** | Calculates mean expression levels only. | For a quick look at present molecules without statistics. |
+| **Method 2** | **Statistical Analysis** | Uses random shuffling to assign $P$-values. | The gold standard for discovering specific/significant interactions. |
+| **Method 3** | **DEGs Analysis** | Uses a list of "important" genes (DEGs) to filter interactions. | When comparing conditions (e.g., Healthy vs. Disease). |
 
 ---
 
-## 🚀 Getting Started: Environment Setup
+## 🛠 Detailed Comparison
 
-We recommend using **Conda** for environment management.
-
-### 1. Create and Activate the Environment
-
-Create an environment named `cpdb_env` with the required Python version:
-
-```bash
-# 1. Ensure no other conda environment is active
-conda deactivate 
-# (You may need to repeat 'conda deactivate' until prompt is clean)
-
-# 2. Create the new environment
-conda create -n cpdb_env python=3.8
-
-# 3. Activate the new environment
-conda activate cpdb_env
-
-```
-### 2. Install CellPhoneDB Package
-With the environment (cpdb_env) active, install the CellPhoneDB Python package:
-
-```bash 
-pip install cellphonedb
-```
-### 3. Install CellPhoneDB
-With the environment (cpdb_env) active, install the CellPhoneDB Python package:
-
-```bash
-pip install cellphonedb
-```
-
-### 4. Download the Database
-Download the required version of the database (v5.0.0 is used in the script) directly into the data/ folder:
-```bash
-# Ensure you are running this from the project's root directory:
-python -c "from cellphonedb.utils import db_utils; db_utils.download_database(target_dir='data', cpdb_version='v5.0.0')"
-```
-
-(The script `Git4students.py` expects the database file to be named cellphonedb.zip or the explicit version name used in the script).
+| Feature | **METHOD 1: Simple** | **METHOD 2: Statistical** | **METHOD 3: DEGs** |
+| :--- | :--- | :--- | :--- |
+| **Main Goal** | Descriptive calculation of means. | Identify specific interactions via significance tests. | Identify interactions involving genes of interest. |
+| **Calculation Logic** | Mean of Ligand-Receptor (L-R) components. | Random permutations (shuffling) of cell labels. | Filter based on user-provided DEG list. |
+| **Complex Handling** | Uses the value of the lowest expressed member. | Same as Method 1, but used for null distribution. | At least one member must be in the DEG list. |
+| **Expression Threshold**| Default **10%** (gene must be in >10% of cluster). | Default **10%**. If not met, interaction is ignored. | Mandatory **10%** for all interaction members. |
+| **Significance** | **No** statistical test performed. | **Yes**. Based on real mean vs null distribution. | **No**. Relevance depends on your DEG list. |
+| **Required Input** | Counts Matrix + Metadata. | Counts Matrix + Metadata. | Counts + Metadata + DEG File. |
+| **Outputs** | `means.csv`, `deconvoluted.csv` | + `pvalues.csv`, `significant_means.csv` | `relevant_interactions.txt`, `significant_means.csv` |
 
 ---
 
-## 📘 License
+## 🤔 Which method should I choose?
 
-This project is released under the MIT License.
+* **Choose Method 1** if you only need a fast overview of "what is there" without worrying about statistical specificity.
+* **Choose Method 2** for standard publications. It is the most rigorous way to claim an interaction between **Type A** and **Type B** is significantly higher than in the rest of the tissue.
+    > 💡 **Note:** For massive datasets, use **subsampling** (e.g., geometric sketching) to avoid long computation times during the 1,000 permutations.
+* **Choose Method 3** if you have already performed a differential analysis (**Seurat/Scanpy**) and found interesting genes (e.g., up-regulated in a tumor). This "forces" CellphoneDB to focus only on those specific markers.
+
+### 📊 Visualization with `ktplots`
+**Method 2** and **Method 3** are required for visualization.
+
+**Why doesn't Method 1 work?**
+Method 1 does not generate significance (`pvalues.txt`) or relevance files. Since `ktplots` requires these values to filter and plot **Dot Plots** or **Heatmaps**, visualization is not possible for Method 1.
+
+
 
 ---
 
-## 🙌 Acknowledgments
+## 📁 Input Files
 
-CellPhoneDB: (https://www.cellphonedb.org)
-Original publication by Efremova et al.
+### 1. Mandatory Files
+* **`cpdb_file_path` (`cellphonedb.zip`):** The core database containing curated biological information.
+    * *Check for compatibility between the database and software version.*
+* **`meta_file_path` (`metadata.tsv`):** A two-column file (**Cell Barcode** vs. **Cell Type**).
+    * *Avoid spaces or special characters; use underscores (`_`).*
+* **`counts_file_path` (`counts.h5ad`):** The data matrix.
+    * Must be **normalized** (e.g., Log-Normalize) but **NOT scaled** (z-score).
+    * **`.h5ad` (AnnData)** is highly recommended for better memory management.
 
---- 
+### 2. Optional Files
+* **`microenvs_file_path`:** Restricts interactions based on physical proximity.
+* **`active_tf_path`:** Integrates gene regulation data (Transcription Factors).
 
-## ℹ️ Project Note
+---
 
-This repository is a work in progress and aims to help students transition smoothly between Python and R when working with CellPhoneDB for cell–cell communication analysis.
-It is intended to facilitate the use of CellPhoneDB for students. CellPhoneDB is developed by Efremova et al., 2020. This project does not modify the original software.
+## 📚 Resources & Documentation
+
+For a deeper dive into the statistical theory and file preparation:
+* [**CellphoneDB Results Documentation**](https://github.com/ventolab/CellphoneDB/blob/master/docs/RESULTS-DOCUMENTATION.md) – Deep dive into statistical methods.
+* [**Input File Preparation Guide**](https://cellphonedb.readthedocs.io/en/latest/RESULTS-DOCUMENTATION.html#input-files) – Useful tips for creating files using **R**.
+
+For plots: 
+* [**In R library(ktplots)**](https://zktuong.github.io/ktplots/articles/vignette.html).
+* [**In python (end of the web site)**](https://github.com/ventolab/CellphoneDB/blob/master/docs/RESULTS-DOCUMENTATION.md).
+
+---
+Now we'll use [**Seurat data**](https://satijalab.org/seurat/articles/pbmc3k_tutorial) (a dataset of Peripheral Blood Mononuclear Cells - PBMC) to check their communication. 
