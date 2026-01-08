@@ -81,4 +81,4 @@ write.table(counts_matrix_ready,
 
 
 ### Pro Tip: Using .h5ad
-# For very large datasets, exporting to `.txt` can create huge files (several GBs). In those cases, it is recommended to use the `anndata` library in R or `SeuratDisk` to convert your object directly to `.h5ad` format, which is much faster and lighter for CellphoneDB to read.
+# For very large datasets, exporting to .txt can create huge files (several GBs). In those cases, it is recommended to use the anndata library in R or SeuratDisk to convert your object directly to .h5ad format, which is much faster and lighter for CellphoneDB to read.
