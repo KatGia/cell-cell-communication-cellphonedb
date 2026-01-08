@@ -25,7 +25,7 @@ The analysis is divided into two phases:
 
 ### 📌 R Packages for Visualization
 
-* `ktplots` (https://zktuong.github.io/ktplots/articles/vignette.html)
+* `ktplots`
 * `ggplot2` (or `ktplotspy` in Python)
 
 ---
