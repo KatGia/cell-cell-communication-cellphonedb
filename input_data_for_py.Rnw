@@ -1,6 +1,6 @@
 
 ## R Tutorial: Preparing Input Files from Seurat
-# To run the analysis in Python, you first need to export your Seurat Object into two specific files: the **Counts Matrix** and the Metadata Table.
+# To run the analysis in Python, you first need to export your Seurat Object into two specific files: the Counts Matrix and the Metadata Table.
 
 ### 1. Requirements
 library(Seurat)
