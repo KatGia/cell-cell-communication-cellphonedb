@@ -1,7 +1,7 @@
-# cell-cell-communication-CellPhoneDB
+# CellPhoneDB
 
 
-This repository provides a simple workflow for performing **cell–cell communication analysis** using **CellPhoneDB** in **Python**, followed by **graphical visualization** of the results in **R**.
+This repository provides a simple workflow for performing **cell–cell communication analysis** using **CellPhoneDB** in **Python**, followed by **graphical visualization** of the results.
 
 CellPhoneDB is a widely used tool that infers ligand–receptor interactions from single-cell RNA-seq data.
 Here, the Python implementation is used to run the statistical analysis, while R is used for generating dot-plots, heatmaps, and other visualizations.
