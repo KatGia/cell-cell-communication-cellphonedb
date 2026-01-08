@@ -1,4 +1,4 @@
-# 🧬 CellphoneDB Analysis
+# <img width="80" height="100" alt="image" src="https://github.com/user-attachments/assets/29743ad8-0f59-4e03-afc5-b4e88471b046" />  Analysis
 
 **CellphoneDB** is a publicly available repository of curated receptors, ligands, and their interactions, coupled with a statistical framework to infer cell-cell communication from single-cell RNA sequencing (**scRNA-seq**) data.
 
