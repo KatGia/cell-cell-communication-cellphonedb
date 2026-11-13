@@ -1,0 +1,5 @@
+# https://github.com/rcannood/SCORPIUS
+# SCORPIUS an unsupervised approach for inferring linear developmental chronologies from single-cell RNA sequencing data. In comparison to similar approaches, it has three main advantages:
+# It accurately reconstructs linear dynamic processes. The performance was evaluated using a quantitative evaluation pipeline and ten single-cell RNA sequencing datasets.
+# It automatically identifies marker genes, speeding up knowledge discovery.
+# It is fully unsupervised. Prior knowledge of the relevant marker genes or cellular states of individual cells is not required.
