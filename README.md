@@ -76,7 +76,7 @@ python -c "from cellphonedb.utils import db_utils; db_utils.download_database(ta
 
 ## 📘 License
 
-This project is released under the MIT License.
+This material and its associated source code are distributed under the **MIT License** — see the [LICENSE](LICENSE) file for details. The code may be freely reused and adapted for teaching or research purposes with proper attribution to the original author.
 
 ---
 
